@@ -58,6 +58,8 @@ sub generate {
     my $default_func = $self->_default_func;
 
     sub {
+        my @args = @_;
+
         my $index  = $rand->( $max_rate );
         my $cursor = 0;
 
@@ -65,12 +67,12 @@ sub generate {
             $cursor += $f->[0];
 
             if ($index <= $cursor) {
-                return $f->[1]->();
+                return $f->[1]->(@args);
             }
         }
 
         if ($default_func) {
-            return $default_func->();
+            return $default_func->(@args);
         }
         else {
             return;
