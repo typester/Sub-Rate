@@ -18,6 +18,7 @@ META.yml
 MYMETA.json
 MYMETA.yml
 README
+t/args.t
 t/basic.t
 t/err.t
 xt/pod.t

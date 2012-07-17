@@ -1,4 +1,7 @@
 Revision history for Perl extension Sub::Rate
 
+0.02 2012-07-17T21:48:47+09:00
+     - added args support to generated func
+
 0.01 2012-07-17T18:05:02+09:00
      - initial version

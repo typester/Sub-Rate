@@ -4,7 +4,7 @@ use warnings;
 use Any::Moose;
 use Carp;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 has max_rate => (
     is      => 'rw',
