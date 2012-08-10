@@ -1,5 +1,8 @@
 Revision history for Perl extension Sub::Rate
 
+0.03 2012-08-10T13:45:21+09:00
+     - don't sort funcs list by default
+
 0.02 2012-07-17T21:48:47+09:00
      - added args support to generated func
 

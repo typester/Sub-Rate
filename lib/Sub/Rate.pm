@@ -4,7 +4,7 @@ use warnings;
 use Any::Moose;
 use Carp;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 has max_rate => (
     is      => 'rw',
@@ -16,6 +16,11 @@ has rand_func => (
     default => sub {
         return sub { rand($_[0]) };
     },
+);
+
+has sort => (
+    is      => 'rw',
+    default => 0,
 );
 
 has _func => (
@@ -51,7 +56,8 @@ sub add {
 sub generate {
     my ($self) = @_;
 
-    my @sorted_funcs = sort { $a->[0] <=> $b->[0] } @{ $self->_func };
+    my @sorted_funcs = @{ $self->_func };
+    @sorted_funcs = sort { $a->[0] <=> $b->[0] } @sorted_funcs if $self->sort;
 
     my $rand         = $self->rand_func;
     my $max_rate     = $self->max_rate;
