@@ -18,7 +18,7 @@ BEGIN {
         print qq{# `$^X $0 | cpanm` will install them:\n};
         print $_, "\n" for @not_available;
         print "\n";
-        exit -1;
+        exit;
     }
 }
 
