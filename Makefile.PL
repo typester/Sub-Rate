@@ -9,7 +9,7 @@ BEGIN {
     );
     my @not_available;
 
-    eval q{use inc::Module::Install; 1;} or push @not_available, 'inc::Module::Install';
+    eval q{use inc::Module::Install; 1;} or push @not_available, 'Module::Install';
     for my $mod (@devmods) {
         eval qq{require $mod} or push @not_available, $mod;
     }
