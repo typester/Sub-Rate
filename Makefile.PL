@@ -9,7 +9,12 @@ BEGIN {
     );
     my @not_available;
 
-    eval q{use inc::Module::Install; 1;} or push @not_available, 'Module::Install';
+    {
+        $|=1;
+        local *STDOUT;
+        eval qq{use inc::Module::Install; 1;} or push @not_available, 'inc::Module::Install';
+    }
+
     for my $mod (@devmods) {
         eval qq{require $mod} or push @not_available, $mod;
     }
@@ -18,11 +23,12 @@ BEGIN {
         print qq{# `$^X $0 | cpanm` will install them:\n};
         print $_, "\n" for @not_available;
         print "\n";
-        exit;
+        exit -1;
     }
 }
 
 use inc::Module::Install;
+$Module::Install::AUTHOR = 0 if $ENV{TRAVIS};
 
 name 'Sub-Rate';
 all_from 'lib/Sub/Rate.pm';
