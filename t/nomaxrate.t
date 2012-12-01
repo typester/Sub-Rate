@@ -22,4 +22,9 @@ is $loop_count, $r1 + $r2, 'loop count same as $r1 + $r2';
 
 ok 2.0*0.95 <= $r2 / $r1 && $r2 / $r1 <= 2.0*1.05, '$r2/$1 about 20/10 ok';
 
+$sub->clear;
+
+eval { $sub->add(1000 => sub {}) };
+ok !$@, 'no error ok (over default max_rate)';
+
 done_testing;
