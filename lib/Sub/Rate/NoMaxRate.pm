@@ -7,6 +7,15 @@ use List::Util 'sum';
 
 extends 'Sub::Rate';
 
+before add => sub {
+    my ($self, $rate) = @_;
+
+    my $max_rate = sum map { $_->[0] } @{ $self->_func };
+    $max_rate += $rate;
+    $self->max_rate($max_rate);
+};
+
+
 before generate => sub {
     my ($self) = @_;
 
