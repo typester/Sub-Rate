@@ -1,7 +1,7 @@
 package Sub::Rate;
 use strict;
 use warnings;
-use Any::Moose;
+use Mouse;
 use Carp;
 
 our $VERSION = '0.05';
@@ -32,7 +32,7 @@ has _default_func => (
     is => 'rw',
 );
 
-no Any::Moose;
+no Mouse;
 
 sub add {
     my ($self, $rate, $func) = @_;

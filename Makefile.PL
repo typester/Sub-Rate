@@ -39,6 +39,6 @@ auto_set_repository;
 
 test_requires 'Test::More' => '0.96';
 requires 'perl' => '5.008001';
-requires 'Any::Moose' => '0.18';
+requires 'Mouse' => '1.00';
 
 WriteAll;

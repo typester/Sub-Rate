@@ -1,7 +1,7 @@
 package Sub::Rate::NoMaxRate;
 use strict;
 use warnings;
-use Any::Moose;
+use Mouse;
 
 use List::Util 'sum';
 
@@ -18,6 +18,8 @@ after clear => sub {
     my ($self) = @_;
     $self->max_rate(0);
 };
+
+no Mouse;
 
 __PACKAGE__->meta->make_immutable;
 
