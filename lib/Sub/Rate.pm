@@ -148,6 +148,8 @@ Random calculate function. Default is:
 You can change random function to your own implementation by this option.
 C<max_rate> is passed as C<$_[0]> to this function.
 
+=item * sort => 'Bool'
+
 =back
 
 =head2 METHODS
@@ -190,4 +192,3 @@ The full text of the license can be found in the
 LICENSE file included with this module.
 
 =cut
-
