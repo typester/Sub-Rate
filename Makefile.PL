@@ -10,7 +10,7 @@ BEGIN {
     my @not_available;
 
     {
-        $|=1;
+        $| = 1;
         local *STDOUT;
         eval qq{use inc::Module::Install; 1;} or push @not_available, 'inc::Module::Install';
     }
@@ -38,7 +38,8 @@ author_tests 'xt';
 auto_set_repository;
 
 test_requires 'Test::More' => '0.96';
+
 requires 'perl' => '5.008001';
-requires 'Any::Moose' => '0.18';
+requires 'Moo';
 
 WriteAll;

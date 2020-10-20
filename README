@@ -42,6 +42,8 @@ CLASS METHODS
         You can change random function to your own implementation by this
         option. "max_rate" is passed as $_[0] to this function.
 
+    *   sort => 'Bool'
+
   METHODS
   add($rate : Number|Str, $sub :CodeRef)
         $obj->add( 10, sub { ... } );
