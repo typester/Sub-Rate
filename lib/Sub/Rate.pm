@@ -4,7 +4,7 @@ use warnings;
 use Moo;
 use Carp;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 has max_rate => (
     is      => 'rw',
